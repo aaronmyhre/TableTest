@@ -1,0 +1,6 @@
+{
+  "person": {
+    "Exists": "True",
+    "Unique": "person_id"  
+  }
+}
