@@ -1,0 +1,27 @@
+{
+  "badPerson": {
+    "DoesExist": "True",
+    "IsUnique": "id",
+    "IsValidForeignKey":
+      {"ForignTable" : "goodPerson",
+        "fk" : "location_id",
+        "primaryTable" : "location",
+        "pk" : "id"},
+    "IsNotNull": "id"
+  },
+  "goodPerson": {
+    "DoesExist": "True",
+    "IsUnique": "id",
+    "IsValidForeignKey":
+      {"ForignTable" : "goodPerson",
+        "fk" : "location_id",
+        "primaryTable" : "location",
+        "pk" : "id"},
+    "IsNotNull": "id"
+  },
+  "location": {
+    "DoesExist": "True",
+    "IsUnique": "id",
+    "IsNotNull": "id"
+  }
+}

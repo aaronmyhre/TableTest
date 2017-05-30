@@ -11,14 +11,12 @@ class TableTest(object):
             try:
                 self.tests = json.load(f)
             except ValueError:
-                print('not a valid json')
-                raise Exception()
+                raise Exception("not a valid json")
 
 
         # define connection string and engine
         engineConnectionString = 'mysql://%s:%s@%s/%s' % (user, password, dbPath, database)
         self.engine = create_engine(engineConnectionString, echo=False)
-
 
     def run(self):
         results = []
@@ -29,7 +27,7 @@ class TableTest(object):
                 parameters = self.tests[table][testName]
                 test = TestClass(self.engine, table, parameters)
                 testResult = test.run()
-                results.append((table, testName, testResult))
+                results.append((table, testName, parameters, testResult))
 
         for r in results:
             print(r)
@@ -37,5 +35,5 @@ class TableTest(object):
 
 
 if __name__ == "__main__":
-    test = TableTest('unitTests.json', 'tester', 'password', 'localhost', 'test')
+    test = TableTest('unit_tests.json', 'tester', 'password', 'localhost', 'test')
     results = test.run()
